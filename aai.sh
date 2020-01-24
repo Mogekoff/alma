@@ -1,7 +1,8 @@
 #!/bin/bash
 (
  echo o;
-
+ echo;
+ 
  echo n;
  echo;
  echo;
