@@ -13,7 +13,7 @@ useradd -m -g users -G wheel -s /bin/bash username
 passwd username
 echo "username ALL=(ALL) ALL" >> /etc/sudoers
 
-pacman -S dhcpcd xorg-server xf86-video-intel xorg-xinit i3-wm ttf-freefont ttf-dejavu rxvt-unicode zsh alsa-tuils gdb git chromium qtcreator dmenu openssh htop nnn neofetch --noconfirm
+pacman -S dhcpcd xorg-server xf86-video-intel xorg-xinit i3-wm ttf-freefont ttf-dejavu rxvt-unicode zsh alsa-utils gdb git chromium qtcreator dmenu openssh htop nnn neofetch libreoffice-fresh --noconfirm
 
 echo "exec --no-startup-id setxkbmap -model pc105 -layout us,ru -variant , -option grp:alt_shift_toggle" >> ~/.config/i3/conf
 
