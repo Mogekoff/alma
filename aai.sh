@@ -16,7 +16,7 @@
  echo +2G;
  echo y;
  echo t;
- echo 19;
+ echo 82;
  
   
  echo n;
