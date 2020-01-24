@@ -13,7 +13,7 @@ useradd -m -g users -G wheel -s /bin/bash username
 passwd username
 echo "username ALL=(ALL) ALL" >> /etc/sudoers
 
-pacman -S dhcpcd xorg xorg-xinit i3-wm ttf-freefont ttf-dejavu rxvt-unicode zsh alsa-tuils gdb git chromium qtcreator dmenu openssh htop nnn neofetch --noconfirm
+pacman -S dhcpcd xorg-server xorg-drivers xorg-xinit i3-wm ttf-freefont ttf-dejavu rxvt-unicode zsh alsa-tuils gdb git chromium qtcreator dmenu openssh htop nnn neofetch --noconfirm
 
 echo "exec --no-startup-id setxkbmap -model pc105 -layout us,ru -variant , -option grp:alt_shift_toggle" >> ~/.config/i3/conf
 
@@ -28,6 +28,7 @@ cd ly-git
 makepkg -sri
 cd ..
 curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+chmod +x ./install.sh
 ./install.sh
 
 systemctl enable dhcpcd
