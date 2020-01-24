@@ -1,15 +1,16 @@
 #!/bin/bash
 (
  echo o;
- echo;
  
  echo n;
+ echo;
  echo;
  echo;
  echo +300M;
  echo y;
 
  echo n;
+ echo;
  echo;
  echo;
  echo +2G;
@@ -19,6 +20,7 @@
  
   
  echo n;
+ echo;
  echo;
  echo;
  echo;
