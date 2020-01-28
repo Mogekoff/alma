@@ -12,14 +12,14 @@
 ) | fdisk /dev/sda
 
 read -p "GiB for swap partition?" swap
-if [[ $swap > 0 ]]; then
+if [[ $swap > 0 ]]
+then
  (
  echo n;
  echo;
  echo;
  echo;
  echo +"$swap"G;
- echo y;
  echo t;
  echo;
  echo 82;
