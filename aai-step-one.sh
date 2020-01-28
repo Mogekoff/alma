@@ -8,7 +8,6 @@
  echo;
  echo;
  echo +32M;
- echo y;
  echo w;
 ) | fdisk /dev/sda
 
