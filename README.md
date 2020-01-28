@@ -28,5 +28,7 @@ sh -c "$(curl -fsSL https://git.io/JvYLK)"
 ##### P.S.S: Also, you can download these scripts and edit them with nano or something right on your live archiso
 ### Script URIs:
 #1: https://git.io/JvYLK
+
 #2: https://git.io/JvtHM
+
 #3: https://git.io/JvYLX
