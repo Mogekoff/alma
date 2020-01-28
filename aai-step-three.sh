@@ -95,12 +95,12 @@ urxvt*background: rgba:0000/0000/0200/c800
 cd
 wget -O wallpaper.jpg https://git.io/JvY8U
 
-touch ~/.xinitrc
+touch ~/.xprofile
 echo -e "
 xrdb -merge ~/.Xresources &
-picom & &
-feh --bg-scale ~/wallpaper.jpg
-" > ~/.xinitrc
+feh --bg-scale ~/wallpaper.jpg &
+picom &
+" > ~/.xprofile
 
 
 #SETTING UP "TERMINALPARTY" THEME FOR ZSH
