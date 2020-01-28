@@ -105,7 +105,7 @@ feh --bg-scale ~/wallpaper.jpg
 #SETTING UP "TERMINALPARTY" THEME FOR ZSH
 
 echo -e "
-export ZSH=$HOME/.oh-my.zsh
+export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="terminalparty"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh" > ~/.zshrc
