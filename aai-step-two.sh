@@ -1,33 +1,80 @@
 #!/bin/bash
+read -p "Enter machine name: " machine
+read -p "Enter username: " username
 
 echo en_US.UTF-8 UTF-8 > /etc/locale.gen
 echo ru_RU.UTF-8 UTF-8 >> /etc/locale.gen
 locale-gen
+
 echo LANG=ru_RU.UTF-8 > /etc/locale.conf
 export LANG=ru_RU.UTF-8
+echo 'KEYMAP=ru' >> /etc/vconsole.conf
+echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
+
 rm -rf /etc/localtime
 hwclock --systohc --utc
-echo usernamecomputer > /etc/hostname
+
+echo $machine > /etc/hostname
+
+echo "Enter root password"
 passwd root
-useradd -m -g users -G wheel -s /bin/bash username
-passwd username
-echo "username ALL=(ALL) ALL" >> /etc/sudoers
 
-pacman -S dhcpcd xorg-server xf86-video-intel xorg-xinit i3-wm ttf-freefont ttf-dejavu rxvt-unicode zsh alsa-utils gdb git chromium qtcreator dmenu openssh htop nnn neofetch libreoffice-fresh --noconfirm
+useradd -m -g users -G wheel -s /bin/bash $username
 
-echo "exec --no-startup-id setxkbmap -model pc105 -layout us,ru -variant , -option grp:alt_shift_toggle" >> ~/.config/i3/conf
+echo "Enter username password"
+passwd $username
+
+echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
+
+read -p "nvidia(0) or other(1) video card?" video
+case $video in
+0)
+pacman -S nvidia
+echo
+;;
+1)
+pacman -S mesa
+echo
+esac
+
+read -p "Need wi-fi (y/n)?" wifi
+pacman -S dhcpcd
+if [[ $wifi == y ]]
+then
+pacman -S wifi-menu dialog netctl wpa_supplicant
+systemctl disable dhcpcd
+systemctl enable netctl
+else
+systemctl enable dhcpcd
+fi
+
+read -p "Need x32 libs (y/n)?" multilib
+if [[ $multilib == y ]]
+then
+echo '[multilib]' >> /etc/pacman.conf
+echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
+pacman -Syy
+fi
+
+read -p "Is that virtualbox(0), vmware(1) or real pc(2)?" vm
+case $vm in
+0)
+pacman -S virtualbox-guest-utils xf86-video-vmware
+echo
+systemctl enable vboxservice
+echo
+;;
+1)
+pacman -S  xf86-input-vmmouse xf86-video-vmware open-vm-tools
+systemctl enable vmtoolsd
+systemctl enable vmware-vmblock-fuse
+echo
+esac
+
+pacman -S xorg-server xorg-xinit ttf-freefont ttf-dejavu alsa-utils --noconfirm
 
 amixer set Master 100% unmute
 amixer set PCM 100% unmute
-
-
-mkdir build
-cd build
-curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-chmod +x ./install.sh
-./install.sh
-
-systemctl enable dhcpcd
 
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
