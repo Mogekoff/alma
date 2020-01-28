@@ -41,7 +41,7 @@ read -p "Need wi-fi (y/n)?" wifi
 pacman -S dhcpcd --noconfirm
 if [[ $wifi == y ]]
 then
-pacman -S wifi-menu dialog netctl wpa_supplicant --noconfirm
+pacman -S dialog netctl wpa_supplicant --noconfirm
 systemctl disable dhcpcd
 systemctl enable netctl
 else
