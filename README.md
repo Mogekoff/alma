@@ -25,7 +25,7 @@ sh -c "$(curl -fsSL https://git.io/JvYLK)"
 ### 3. Follow installer instructions.
 
 ##### P.S.:  You can fork and edit this script for yourself. I mean GNU GPL v3.
-##### P.S.S: Also, you can download these scripts and edit them with nano or something right on your live archiso
+##### P.S.S: Also, you can download these scripts and edit them with nano or something right on your live ArchISO.
 ### Script URIs:
 #1: https://git.io/JvYLK
 
