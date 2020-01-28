@@ -10,10 +10,14 @@
                                                                                 
                                                                                 
 
-Auto Arch Install Script
+#Auto Arch Install Script
 
 Boot Arch Iso image and then type:
-`sh -c "$(curl -fsSL https://git.io/JvYLK)"`
+```bash
+sh -c "$(curl -fsSL https://git.io/JvYLK)"
+```
 
 Third step:
-`sh -c "$(curl -fsSL https://git.io/JvYLX)"`
+```bash
+sh -c "$(curl -fsSL https://git.io/JvYLX)"
+```
