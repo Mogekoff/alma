@@ -26,7 +26,7 @@ passwd $username
 
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
-read -p "nvidia(0) or other(1) video card?" video
+read -p "nvidia(0) or other(1) video card: " video
 case $video in
 0)
 pacman -S nvidia --noconfirm
@@ -37,7 +37,7 @@ pacman -S mesa --noconfirm
 echo
 esac
 
-read -p "Need wi-fi (y/n)?" wifi
+read -p "Need wi-fi (y/n): " wifi
 pacman -S dhcpcd --noconfirm
 if [[ $wifi == y ]]
 then
@@ -48,7 +48,7 @@ else
 systemctl enable dhcpcd
 fi
 
-read -p "Need x32 libs (y/n)?" multilib
+read -p "Need x32 libs (y/n): " multilib
 if [[ $multilib == y ]]
 then
 echo '[multilib]' >> /etc/pacman.conf
@@ -56,7 +56,7 @@ echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 pacman -Syy
 fi
 
-read -p "Is that virtualbox(0), vmware(1) or real pc(2)?" vm
+read -p "Is that virtualbox(0), vmware(1) or real pc(any): " vm
 case $vm in
 0)
 pacman -S virtualbox-guest-utils xf86-video-vmware --noconfirm
