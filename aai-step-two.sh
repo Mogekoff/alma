@@ -97,4 +97,5 @@ grub-mkconfig -o /boot/grub/grub.cfg
 #CREATE LOAD IMAGE
 mkinitcpio -P
 
-reboot
+#EXIT FROM ARCH-CHROOT
+kill -9 $PPID 
