@@ -19,7 +19,7 @@ if [[ $swap > 0 ]]; then
  echo;
  echo;
  echo;
- echo +{$swap}G;
+ echo +"$swap"G;
  echo y;
  echo t;
  echo;
