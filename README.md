@@ -23,7 +23,7 @@ sh -c "$(curl -fsSL https://git.io/JvYLK)"
 sh -c "$(curl -fsSL https://git.io/JvYLX)"
 ```
 
-P.S.: You can switch to user by typing:
+##### P.S.: You can switch to user by typing:
 ```bash
 su username
 ```
