@@ -29,19 +29,19 @@ echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 read -p "nvidia(0) or other(1) video card?" video
 case $video in
 0)
-pacman -S nvidia
+pacman -S nvidia --noconfirm
 echo
 ;;
 1)
-pacman -S mesa
+pacman -S mesa --noconfirm
 echo
 esac
 
 read -p "Need wi-fi (y/n)?" wifi
-pacman -S dhcpcd
+pacman -S dhcpcd --noconfirm
 if [[ $wifi == y ]]
 then
-pacman -S wifi-menu dialog netctl wpa_supplicant
+pacman -S wifi-menu dialog netctl wpa_supplicant --noconfirm
 systemctl disable dhcpcd
 systemctl enable netctl
 else
@@ -59,13 +59,11 @@ fi
 read -p "Is that virtualbox(0), vmware(1) or real pc(2)?" vm
 case $vm in
 0)
-pacman -S virtualbox-guest-utils xf86-video-vmware
-echo
+pacman -S virtualbox-guest-utils xf86-video-vmware --noconfirm
 systemctl enable vboxservice
-echo
 ;;
 1)
-pacman -S  xf86-input-vmmouse xf86-video-vmware open-vm-tools
+pacman -S  xf86-input-vmmouse xf86-video-vmware open-vm-tools --noconfirm
 systemctl enable vmtoolsd
 systemctl enable vmware-vmblock-fuse
 echo
