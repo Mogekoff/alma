@@ -29,7 +29,7 @@ then
  swapon /dev/sda2
 fi
 
-)  
+(  
  echo n;
  echo;
  echo;
