@@ -63,5 +63,11 @@ pacstrap /mnt grub-bios
 #GENFSTAB
 genfstab -p /mnt >> /mnt/etc/fstab 
 
-#LOG-IN TO ARCH-CHROOT
+#LOG-IN TO ARCH-CHROOT AND GO TO *STEP TWO*
 arch-chroot /mnt sh -c "$(curl -fsSL https://git.io/JvtHM)"
+
+#GO TO *STEP THREE*
+sh -c "$(curl -fsSL https://git.io/JvYLX)"
+
+#WELCOME TO ARCH LINUX!!!
+reboot
