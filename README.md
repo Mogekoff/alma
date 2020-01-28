@@ -10,14 +10,20 @@
                                                                                 
                                                                                 
 
-#Auto Arch Install Script
+# Auto Arch Install Script
 
-Boot Arch Iso image and then type:
+### 1. Boot Arch Iso image and then type:
 ```bash
 sh -c "$(curl -fsSL https://git.io/JvYLK)"
 ```
+### 2. Follow installer instructions.
 
-Third step:
+### 3. After all, run the command as a user, **not** root (**this is important!**):
 ```bash
 sh -c "$(curl -fsSL https://git.io/JvYLX)"
+```
+
+P.S.: You can switch to user by typing:
+```bash
+su username
 ```
