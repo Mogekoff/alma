@@ -2,7 +2,6 @@
 
 (
  echo o;
- 
  echo n;
  echo;
  echo;
@@ -11,7 +10,7 @@
  echo w;
 ) | fdisk /dev/sda
 
-read -p "GiB for swap partition:" swap
+read -p "GiB for swap partition: " swap
 if [[ $swap > 0 ]]
 then
  (
