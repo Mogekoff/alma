@@ -12,10 +12,21 @@
 
 # Auto Arch Install Script v1.0
 
-### 1. Boot Arch Iso image and then type:
+### 1. Firstly, check your internet connection:
+```bash
+ping example.com
+```
+#### If you can't get a response from the site then fix your connection and go next.
+
+### 2. Type this command below:
 ```bash
 sh -c "$(curl -fsSL https://git.io/JvYLK)"
 ```
-### 2. Follow installer instructions.
+### 3. Follow installer instructions.
 
-##### P.S.: You can fork and edit this script for yourself. I mean GNU GPL v3.
+##### P.S.:  You can fork and edit this script for yourself. I mean GNU GPL v3.
+##### P.S.S: Also, you can download these scripts and edit them with nano or something right on your live archiso
+### Script URIs:
+#1: https://git.io/JvYLK
+#2: https://git.io/JvtHM
+#3: https://git.io/JvYLX
