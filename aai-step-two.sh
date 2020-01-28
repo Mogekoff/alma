@@ -73,7 +73,8 @@ fi
 read -p "Is that virtualbox(0), vmware(1) or real pc(any): " vm
 case $vm in
 0)
-pacman -S virtualbox-guest-utils xf86-video-vmware --noconfirm
+pacman -S virtualbox-guest-utils xf86-video-vmware
+echo 2;
 systemctl enable vboxservice
 ;;
 1)
