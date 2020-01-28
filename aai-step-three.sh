@@ -92,6 +92,7 @@ urxvt*background: rgba:0000/0000/0200/c800
 " > ~/.Xresources
 
 #AUTOSTART
+cd
 wget -O wallpaper.jpg https://git.io/JvY8U
 
 touch ~/.xinitrc
