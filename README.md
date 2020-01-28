@@ -2,4 +2,7 @@
 Auto Arch Install Script
 
 Boot Arch Iso image and then type:
-`wget -O aai.sh https://git.io/JvtSQ && chmod +x aai.sh && aai.sh`
+`sh -c "$(curl -fsSL https://git.io/JvYLK)"`
+
+Third step:
+`sh -c "$(curl -fsSL https://git.io/JvYLX)"`
