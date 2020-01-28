@@ -98,6 +98,7 @@ wget -O wallpaper.jpg https://git.io/JvY8U
 touch ~/.xprofile
 echo -e "
 xrdb -merge ~/.Xresources &
+setxkbmap -model pc105 -layout us,ru -variant , -option grp:alt_shift_toggle &
 feh --bg-scale ~/wallpaper.jpg &
 picom &
 " > ~/.xprofile
