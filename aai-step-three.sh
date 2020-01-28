@@ -8,7 +8,7 @@ if [ "$(id -u)" == "0" ]; then
 fi 
 
 #MINIMAL ARCHER LIST
-minimal="i3 rxvt-unicode picom conky dmenu zsh nano nnn feh moc mpv htop git openssh neofetch surf lynx"
+minimal="i3 rxvt-unicode picom conky dmenu zsh nano nnn feh moc mpv htop git openssh neofetch surf lynx wget"
 
 #PACKAGES FOR PROGRAMMERS
 prog="code qtcreator gdb"
@@ -92,12 +92,13 @@ urxvt*background: rgba:0000/0000/0200/c800
 " > ~/.Xresources
 
 #AUTOSTART
+wget -O wallpaper.jpg https://git.io/JvY8U
 
 touch ~/.xinitrc
 echo -e "
 xrdb -merge ~/.Xresources &
 picom & &
-feh --bg-scale ~/wallpaper
+feh --bg-scale ~/wallpaper.jpg
 " > ~/.xinitrc
 
 
