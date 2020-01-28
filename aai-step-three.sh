@@ -17,3 +17,5 @@ sudo chsh root -s /bin/zsh
 
 echo "export ZSH=""$USER"/.oh-my.zsh" >  ~/.zshrc
 echo "ZSH_THEME="terminalparty" >> ~/.zshrc
+
+rm -r build/*
