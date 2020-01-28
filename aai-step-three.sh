@@ -111,6 +111,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh" > ~/.zshrc
 
 #CLEARING BUILD DIR
-rm -r build/*
+rm -rf build
 
-exit 1
+exit 0
