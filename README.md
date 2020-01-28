@@ -10,7 +10,7 @@
                                                                                 
                                                                                 
 
-# Auto Arch Install Script
+# Auto Arch Install Script v1.0
 
 ### 1. Boot Arch Iso image and then type:
 ```bash
