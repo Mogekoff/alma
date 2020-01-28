@@ -18,12 +18,4 @@ sh -c "$(curl -fsSL https://git.io/JvYLK)"
 ```
 ### 2. Follow installer instructions.
 
-### 3. After all, run the command as a user, **not** root (**this is important!**):
-```bash
-sh -c "$(curl -fsSL https://git.io/JvYLX)"
-```
-
-##### P.S.: You can switch to user by typing:
-```bash
-su username
-```
+##### P.S.: You can fork and edit this script for yourself. I mean GNU GPL v3.
