@@ -55,6 +55,7 @@ cd build
 
 git clone https://aur.archlinux.org/browsh.git
 cd browsh
+echo $upass | sudo -Sv
 makepkg -sri --noconfirm
 cd ..
 
@@ -62,10 +63,11 @@ cd ..
 
 git clone https://aur.archlinux.org/ly-git.git
 cd ly-git
+echo $upass | sudo -Sv
 makepkg -sri --noconfirm
 cd ..
-sudo systemctl enable ly
-sudo systemctl disable getty@tty2
+echo $upass | sudo -S systemctl enable ly
+echo $upass | sudo -S systemctl disable getty@tty2
 
 read -p "Do you want to install configs (y/n): " choice
 if [[ $choice == y ]]; then
@@ -75,8 +77,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 #CHANGING DEFAULT SHELL FOR ROOT AND USER
 
-chsh -s /bin/zsh
-sudo chsh root -s /bin/zsh
+echo $upass | sudo -S chsh $username -s /bin/zsh
+echo $upass | sudo -S chsh root -s /bin/zsh
 
 #URXVT CONFIG
 
