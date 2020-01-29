@@ -29,7 +29,10 @@ utils="xf86-input-synaptics"
 
 #INSTALLING PACKAGES
 read -p "Do you want to install minimalistic arch (y/n): " choice
-if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $minimal --noconfirm; fi
+if [[ choice == y ]]
+then 
+echo $upass | sudo -S pacman -S $minimal --noconfirm
+fi
 
 read -p "Do you want to install soft for programmers (y/n): " choice
 if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $prog --noconfirm; fi
@@ -40,7 +43,7 @@ if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $office --noconfirm; 
 read -p "Do you want to install default browsers (y/n): " choice
 if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $browsers --noconfirm; fi
 
-read -p "Do you want to install minimalistic arch (y/n): " choice
+read -p "Do you want to install some utils (y/n): " choice
 if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $utils --noconfirm; fi
 
 #CREATING BUILD DIR
