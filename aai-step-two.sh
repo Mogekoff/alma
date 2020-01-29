@@ -98,7 +98,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 mkinitcpio -P
 
 #GO TO *STEP THREE*
-curl -fsSL https://git.io/JvYLX | sudo -u $username sh
+curl https://git.io/JvYLX --output aai-step-three.sh -sL && chmod +x aai-step-three.sh && sudo -u $username ./aai-step-three.sh
 
 #EXIT FROM ARCH-CHROOT
 kill -9 $PPID 
