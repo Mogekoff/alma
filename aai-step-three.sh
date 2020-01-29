@@ -10,6 +10,7 @@ fi
 read -p "Do you want to execute step three and install recommended soft and configs? (y/n): " choice
 if [[ choice == n ]]; then exit 2; fi
 
+cd ~
 
 #MINIMAL ARCHER LIST
 minimal="i3 rxvt-unicode picom conky dmenu zsh nano nnn feh moc mpv htop git openssh neofetch surf lynx wget"
