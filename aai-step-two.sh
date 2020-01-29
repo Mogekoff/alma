@@ -98,7 +98,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 mkinitcpio -P
 
 #GO TO *STEP THREE*
-sudo -u $username "sh -c "$(curl -fsSL https://git.io/JvYLX)""
+curl -fsSL https://git.io/JvYLX | sudo -u $username sh
 
 #EXIT FROM ARCH-CHROOT
 kill -9 $PPID 
