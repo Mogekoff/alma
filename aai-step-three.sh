@@ -8,7 +8,7 @@ if [[ "$(id -u)" == "0" ]]; then
 fi 
 
 read -p "Do you want to execute step three and install recommended soft and configs? (y/n): " choice
-if [[ choice == n ]]; then; exit 2; fi
+if [[ choice == n ]]; then exit 2; fi
 
 
 #MINIMAL ARCHER LIST
@@ -28,19 +28,19 @@ utils="xf86-input-synaptics"
 
 #INSTALLING PACKAGES
 read -p "Do you want to install minimalistic arch (y/n): " choice
-if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $minimal --noconfirm; fi
+if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $minimal --noconfirm; fi
 
 read -p "Do you want to install soft for programmers (y/n): " choice
-if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $prog --noconfirm; fi
+if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $prog --noconfirm; fi
 
 read -p "Do you want to install some office soft (y/n): " choice
-if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $office --noconfirm; fi
+if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $office --noconfirm; fi
 
 read -p "Do you want to install default browsers (y/n): " choice
-if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $browsers --noconfirm; fi
+if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $browsers --noconfirm; fi
 
 read -p "Do you want to install minimalistic arch (y/n): " choice
-if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $utils --noconfirm; fi
+if [[ choice == y ]]; then echo $upass | sudo -S pacman -S $utils --noconfirm; fi
 
 #CREATING BUILD DIR
 
@@ -64,7 +64,7 @@ sudo systemctl enable ly
 sudo systemctl disable getty@tty2
 
 read -p "Do you want to install configs (y/n): " choice
-if [[ choice == y ]]; then;
+if [[ choice == y ]]; then
 
 #OH-MY-ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
