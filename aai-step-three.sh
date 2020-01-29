@@ -7,7 +7,7 @@ if [[ "$(id -u)" == "0" ]]; then
    exit 1
 fi 
 
-cd
+cd ~
 
 read -p "Do you want to execute step three and install recommended soft and configs? (y/n): " choice
 if [[ choice == n ]]; then; exit 2; fi
