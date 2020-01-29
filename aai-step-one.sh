@@ -51,6 +51,9 @@ fdisk -l
 
 mkfs.ext4 /dev/sda1                                          
 mkfs.ext4 /dev/sda3
+
+#MOUNT DISKS AND MAKE DEFAULT DIRS
+
 mount /dev/sda3 /mnt                            
 mkdir /mnt/boot /mnt/var /mnt/home
 mount /dev/sda1 /mnt/boot
@@ -66,8 +69,9 @@ genfstab -p /mnt >> /mnt/etc/fstab
 #LOG-IN TO ARCH-CHROOT AND GO TO *STEP TWO*
 arch-chroot /mnt sh -c "$(curl -fsSL https://git.io/JvtHM)"
 
-#GO TO *STEP THREE*
-sh -c "$(curl -fsSL https://git.io/JvYLX)"
+#UNMOUNT DICKS
+umount /mnt/boot
+umount /mnt
 
 #WELCOME TO ARCH LINUX!!!
 reboot
