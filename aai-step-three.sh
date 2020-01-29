@@ -2,10 +2,14 @@
 
 #CHECK THE SCRIPT IS NOT BEING RUN BY ROOT
 
-if [ "$(id -u)" == "0" ]; then
+if [[ "$(id -u)" == "0" ]]; then
    echo "This script must not be run as root"
    exit 1
 fi 
+
+read -p "Do you want to execute step three and install recommended soft and configs? (y/n): " choice
+if [[ choice == n ]]; then; exit 2; fi
+
 
 #MINIMAL ARCHER LIST
 minimal="i3 rxvt-unicode picom conky dmenu zsh nano nnn feh moc mpv htop git openssh neofetch surf lynx wget"
@@ -17,19 +21,26 @@ prog="code qtcreator gdb"
 office="libreoffice-fresh"
 
 #GUI BROWSERS
-browsers="chromium firefox"
+browsers="chromium firefox tor"
 
 #SOME UTILS
 utils="xf86-input-synaptics"
 
 #INSTALLING PACKAGES
+read -p "Do you want to install minimalistic arch (y/n): " choice
+if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $minimal --noconfirm; fi
 
-sudo pacman -S $minimal --noconfirm
-sudo pacman -S $prog --noconfirm
-sudo pacman -S $office --noconfirm
-sudo pacman -S $browsers --noconfirm
-sudo pacman -S $utils --noconfirm
+read -p "Do you want to install soft for programmers (y/n): " choice
+if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $prog --noconfirm; fi
 
+read -p "Do you want to install some office soft (y/n): " choice
+if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $office --noconfirm; fi
+
+read -p "Do you want to install default browsers (y/n): " choice
+if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $browsers --noconfirm; fi
+
+read -p "Do you want to install minimalistic arch (y/n): " choice
+if [[ choice == y ]]; then; echo $upass | sudo -S pacman -S $utils --noconfirm; fi
 
 #CREATING BUILD DIR
 
@@ -51,6 +62,9 @@ makepkg -sri --noconfirm
 cd ..
 sudo systemctl enable ly
 sudo systemctl disable getty@tty2
+
+read -p "Do you want to install configs (y/n): " choice
+if [[ choice == y ]]; then;
 
 #OH-MY-ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -111,6 +125,8 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="terminalparty"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh" > ~/.zshrc
+
+fi
 
 #CLEARING BUILD DIR
 rm -rf build/*
