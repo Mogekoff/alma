@@ -129,8 +129,7 @@ picom &
 echo -e "
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="terminalparty"
-plugins=(git)
-source $ZSH/oh-my-zsh.sh" > ~/.zshrc
+plugins=(git)" > ~/.zshrc
 
 fi
 
