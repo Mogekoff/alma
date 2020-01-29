@@ -1,8 +1,11 @@
 #!/bin/bash
 
-#ASK FOR INDIVIDUAL USERNAME AND HOSTNAME
+#ASK FOR INDIVIDUAL USERNAME AND HOSTNAME AND PASSES
 read -p "Enter hostname: " hostname
 read -p "Enter username: " username
+read -p "Enter root password: " rpass
+read -p "Enter username password: " upass
+export upass
 
 #GENERATING LOCALES
 echo en_US.UTF-8 UTF-8 > /etc/locale.gen
@@ -23,15 +26,13 @@ hwclock --systohc --utc
 echo $hostname > /etc/hostname
 
 #SETTING UP ROOT PASSWORD
-echo "Enter root password"
-passwd root
+echo -e "$rpass\n$rpass" | passwd root
 
 #ADDING USER "USERNAME" WITH GROUP "WHEEL"
 useradd -m -g users -G wheel -s /bin/bash $username
 
 #SETTING UP USER PASSWORD
-echo "Enter username password"
-passwd $username
+echo -e "$upass\n$upass" | passwd $username
 
 #ADDING WHEEL GROUP TO SUDOERS
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
@@ -51,8 +52,7 @@ esac
 #SETTING UP WI-FI SETTINGS FOR NOTEBOOKS
 read -p "Need wi-fi (y/n): " wifi
 pacman -S dhcpcd --noconfirm
-if [[ $wifi == y ]]
-then
+if [[ $wifi == y ]]; then
 pacman -S dialog netctl wpa_supplicant --noconfirm
 systemctl disable dhcpcd
 systemctl enable netctl
@@ -62,8 +62,7 @@ fi
 
 #ENABLING MULTILIBS REPOSITORIES IN PACMAN
 read -p "Need x32 libs (y/n): " multilib
-if [[ $multilib == y ]]
-then
+if [[ $multilib == y ]]; then
 echo '[multilib]' >> /etc/pacman.conf
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 pacman -Syy
@@ -97,6 +96,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 #CREATE LOAD IMAGE
 mkinitcpio -P
+
+#GO TO *STEP THREE*
+sudo -u $username "sh -c "$(curl -fsSL https://git.io/JvYLX)""
 
 #EXIT FROM ARCH-CHROOT
 kill -9 $PPID 
