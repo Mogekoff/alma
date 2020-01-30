@@ -1,10 +1,12 @@
 #!/bin/bash
 
 #ASK FOR INDIVIDUAL USERNAME AND HOSTNAME AND PASSES
+clear
 read -p "Enter hostname: " hostname
 read -p "Enter username: " username
 read -p "Enter root password: " rpass
 read -p "Enter username password: " upass
+clear
 export upass
 
 #GENERATING LOCALES
@@ -38,6 +40,7 @@ echo -e "$upass\n$upass" | passwd $username
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
 #DRIVERS FOR VIDEOCARD
+clear
 read -p "nvidia(0) or other(1) video card: " video
 case $video in
 0)
@@ -50,6 +53,7 @@ echo
 esac
 
 #SETTING UP WI-FI SETTINGS FOR NOTEBOOKS
+clear
 read -p "Need wi-fi (y/n): " wifi
 pacman -S dhcpcd --noconfirm
 if [[ $wifi == y ]]; then
@@ -61,6 +65,7 @@ systemctl enable dhcpcd
 fi
 
 #ENABLING MULTILIBS REPOSITORIES IN PACMAN
+clear
 read -p "Need x32 libs (y/n): " multilib
 if [[ $multilib == y ]]; then
 echo '[multilib]' >> /etc/pacman.conf
@@ -69,6 +74,7 @@ pacman -Syy
 fi
 
 #VIRTUAL MACHINE DRIVERS
+clear
 read -p "Is that virtualbox(0), vmware(1) or real pc(any): " vm
 case $vm in
 0)
