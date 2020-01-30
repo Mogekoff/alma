@@ -2,11 +2,13 @@
 
 #CHECK THE SCRIPT IS NOT BEING RUN BY ROOT
 
+clear
 if [[ "$(id -u)" == "0" ]]; then
    echo "This script must not be run as root"
    exit 1
 fi 
 
+clear
 read -p "Do you want to execute step three and install recommended soft and configs? (y/n): " choice
 if [[ $choice == n ]]; then exit 2; fi
 
@@ -26,23 +28,29 @@ browsers="chromium firefox tor"
 utils="xf86-input-synaptics"
 
 #INSTALLING PACKAGES
+clear
 read -p "Do you want to install minimalistic arch (y/n): " choice
 if [[ $choice == y ]]
 then 
 echo $upass | sudo -S pacman -S $minimal --noconfirm
 fi
 
+clear
 read -p "Do you want to install soft for programmers (y/n): " choice
 if [[ $choice == y ]]; then echo $upass | sudo -S pacman -S $prog --noconfirm; fi
 
+clear
 read -p "Do you want to install some office soft (y/n): " choice
 if [[ $choice == y ]]; then echo $upass | sudo -S pacman -S $office --noconfirm; fi
 
+clear
 read -p "Do you want to install default browsers (y/n): " choice
 if [[ $choice == y ]]; then echo $upass | sudo -S pacman -S $browsers --noconfirm; fi
 
+clear
 read -p "Do you want to install some utils (y/n): " choice
 if [[ $choice == y ]]; then echo $upass | sudo -S pacman -S $utils --noconfirm; fi
+clear
 
 #CREATING BUILD DIR
 
@@ -68,6 +76,7 @@ cd ..
 echo $upass | sudo -S systemctl enable ly
 echo $upass | sudo -S systemctl disable getty@tty2
 
+clear
 read -p "Do you want to install configs (y/n): " choice
 if [[ $choice == y ]]; then
 
@@ -135,4 +144,5 @@ fi
 #CLEARING BUILD DIR
 rm -rf build/*
 
+clear
 exit 0
