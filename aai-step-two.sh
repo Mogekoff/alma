@@ -7,7 +7,6 @@ read -p "Enter username: " username
 read -p "Enter root password: " rpass
 read -p "Enter username password: " upass
 clear
-export upass
 
 #GENERATING LOCALES
 echo en_US.UTF-8 UTF-8 > /etc/locale.gen
