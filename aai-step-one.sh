@@ -2,6 +2,7 @@
 
 #BOOT PART 500MB
 
+clear
 (
  echo o;
  echo n;
@@ -14,6 +15,7 @@
 
 #SWAP PART
 
+clear
 read -p "GiB for swap partition: " swap
 if [[ $swap > 0 ]]
 then
@@ -45,7 +47,10 @@ fi
 ) | fdisk /dev/sda
 
 #DISPLAY PARTITIONS
-fdisk -l
+
+clear
+fdisk -l 
+sleep 10 
 
 #FORMAT
 
@@ -73,5 +78,7 @@ arch-chroot /mnt sh -c "$(curl -fsSL https://git.io/JvtHM)"
 umount /mnt/boot
 umount /mnt
 
-#WELCOME TO ARCH LINUX!!!
+clear
+echo "Installation successful! Welcome to Arch Linux World!!!"
+sleep 5
 reboot
