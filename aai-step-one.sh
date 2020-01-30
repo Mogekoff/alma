@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #BOOT PART 500MB
-
 clear
 (
  echo o;
@@ -14,7 +13,6 @@ clear
 ) | fdisk /dev/sda
 
 #SWAP PART
-
 clear
 read -p "GiB for swap partition: " swap
 if [[ $swap > 0 ]]
@@ -35,7 +33,6 @@ then
 fi
 
 #ROOT PART
-
 (  
  echo n;
  echo;
@@ -47,24 +44,20 @@ fi
 ) | fdisk /dev/sda
 
 #DISPLAY PARTITIONS
-
 clear
 fdisk -l 
 sleep 10 
 
 #FORMAT
-
 mkfs.ext4 /dev/sda1                                          
 mkfs.ext4 /dev/sda3
 
 #MOUNT DISKS AND MAKE DEFAULT DIRS
-
 mount /dev/sda3 /mnt                            
 mkdir /mnt/boot /mnt/var /mnt/home
 mount /dev/sda1 /mnt/boot
 
 #BASE INSTALL
-
 pacstrap /mnt base base-devel linux linux-firmware
 pacstrap /mnt grub-bios
 
@@ -78,6 +71,7 @@ arch-chroot /mnt sh -c "$(curl -fsSL https://git.io/JvtHM)"
 umount /mnt/boot
 umount /mnt
 
+#FINISHING
 clear
 echo "Installation successful! Welcome to Arch Linux World!!!"
 sleep 5
