@@ -1,18 +1,18 @@
 #!/bin/bash
 
 #CHECK THE SCRIPT IS NOT BEING RUN BY ROOT
-
-
 clear
 if [[ "$(id -u)" == "0" ]]; then
    echo "This script must not be run as root"
    exit 1
 fi 
 
+#ASKINK FOR EXECUTE THIS SCRIPT
 clear
 read -p "Do you want to execute step three and install recommended soft and configs? (y/n): " choice
 if [[ $choice == n ]]; then exit 2; fi
 
+#GETTING USER PASS
 getPass() {
 clear
 read -p "Enter user password or press Ctlr+C to exit script: " upass
@@ -30,8 +30,6 @@ getPass
 fi
 }
 getPass
-
-
 
 #MINIMAL ARCHER LIST
 minimal="i3 rxvt-unicode picom conky dmenu zsh nano nnn feh moc mpv htop git openssh neofetch surf lynx wget"
@@ -74,13 +72,11 @@ if [[ $choice == y ]]; then echo $upass | sudo -S pacman -S $utils --noconfirm; 
 clear
 
 #CREATING BUILD DIR
-
 cd ~
 mkdir build scripts images docs music usb
 cd build
 
 #JS CLI BROWSER
-
 git clone https://aur.archlinux.org/browsh.git
 cd browsh
 echo $upass | sudo -Sv
@@ -88,7 +84,6 @@ makepkg -sri --noconfirm
 cd ..
 
 #NCURSES DISPLAY MANAGER
-
 git clone https://aur.archlinux.org/ly-git.git
 cd ly-git
 echo $upass | sudo -Sv
@@ -105,12 +100,10 @@ if [[ $choice == y ]]; then
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 #CHANGING DEFAULT SHELL FOR ROOT AND USER
-
 echo $upass | chsh -s /bin/zsh
 echo $upass | sudo -S chsh root -s /bin/zsh
 
 #URXVT CONFIG
-
 touch ~/.Xresources
 echo -e "
 URxvt.scrollBar: false
@@ -154,7 +147,6 @@ picom &
 
 
 #SETTING UP "TERMINALPARTY" THEME FOR ZSH
-
 echo -e "
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="terminalparty"
