@@ -2,6 +2,7 @@
 
 #CHECK THE SCRIPT IS NOT BEING RUN BY ROOT
 
+
 clear
 if [[ "$(id -u)" == "0" ]]; then
    echo "This script must not be run as root"
@@ -11,6 +12,26 @@ fi
 clear
 read -p "Do you want to execute step three and install recommended soft and configs? (y/n): " choice
 if [[ $choice == n ]]; then exit 2; fi
+
+getPass() {
+clear
+read -p "Enter user password or press Ctlr+C to exit script: " upass
+if echo $upass | sudo -Sv
+then
+clear
+echo "OK"
+sleep 3
+clear
+else
+clear
+echo "Incorrect pass"
+sleep 3
+getPass
+fi
+}
+getPass
+
+
 
 #MINIMAL ARCHER LIST
 minimal="i3 rxvt-unicode picom conky dmenu zsh nano nnn feh moc mpv htop git openssh neofetch surf lynx wget"
@@ -85,7 +106,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 #CHANGING DEFAULT SHELL FOR ROOT AND USER
 
-echo $upass | sudo -S chsh $username -s /bin/zsh
+echo $upass | chsh -s /bin/zsh
 echo $upass | sudo -S chsh root -s /bin/zsh
 
 #URXVT CONFIG
