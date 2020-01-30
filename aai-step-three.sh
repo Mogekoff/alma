@@ -144,5 +144,5 @@ fi
 #CLEARING BUILD DIR
 rm -rf build/*
 
-clear
+
 exit 0
