@@ -101,4 +101,4 @@ mkinitcpio -P
 curl https://git.io/JvYLX --output aai-step-three.sh -sL && chmod +x aai-step-three.sh && sudo -u $username ./aai-step-three.sh
 
 #EXIT FROM ARCH-CHROOT
-kill -9 $PPID 
+exit 0
