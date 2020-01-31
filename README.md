@@ -24,9 +24,9 @@ sh -c "$(curl -fsSL https://git.io/Jv3s4)"
 ### 3. Follow installer instructions.
 
 #### Q: Automatic?
-##### A: Yes. The script will do all the dirty work for you cleanly and quickly.
+##### A: [Yes](https://i.kym-cdn.com/photos/images/original/001/650/747/aaf.png). The script will do all the dirty work for you cleanly and quickly.
 #### Q: Recursive?
-##### A: The installation process consists of three scripts. The first script calls the second, the second calls the third, and the third at the end of the job returns control to the second, and the second to the first. Beauty. You can also refuse to execute the third script and this will not break the execution chain.
+##### A: The installation process consists of three scripts. The first script calls the second, the second calls the third, and the third at the end of the job returns control to the second, and the second to the first. Beauty. You can also refuse to execute the third script and this will not break the [execution chain](https://i.ibb.co/qyCBGj7/image.png).
 #### Q: Continious?
 ##### А: Based on the above, you do not have to enter another command after completing each script to download and run the next part of the installation. During installation, only one computer reboot will occur - upon completion of the script.
 #### Q: Interactive?
