@@ -97,7 +97,7 @@ pacstrap /mnt grub-bios
 genfstab -p /mnt >> /mnt/etc/fstab 
 
 #LOG-IN TO ARCH-CHROOT AND GO TO *STEP TWO*
-arch-chroot /mnt sh -c "$(curl -fsSL https://git.io/JvtHM)"
+arch-chroot /mnt sh -c "$(curl -fsSL https://git.io/Jv3sR)"
 
 #UNMOUNT DICKS
 if [[ $mbrgpt == 1 ]]; then
