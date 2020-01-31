@@ -40,14 +40,18 @@ echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
 #DRIVERS FOR VIDEOCARD
 clear
-read -p "nvidia(0) or other(1) video card: " video
+read -p "nvidia(0) or amd(1) or intel(2) video card: " video
 case $video in
 0)
 pacman -S nvidia --noconfirm
 echo
 ;;
 1)
-pacman -S mesa --noconfirm
+pacman -S mesa xf86-video-ati xf86-video-amdgpu vulkan-radeon libva-mesa-driver mesa-vdpau --noconfirm
+echo
+;;
+2)
+pacman -S mesa  vulkan-intel xf86-video-intel --noconfirm
 echo
 esac
 
