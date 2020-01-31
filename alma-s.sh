@@ -103,7 +103,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 mkinitcpio -P
 
 #GO TO *STEP THREE*
-curl https://git.io/JvYLX --output aai-step-three.sh -sL && chmod +x aai-step-three.sh && sudo -u $username ./aai-step-three.sh
+curl https://git.io/Jv3s0 --output alma-t.sh -sL && chmod +x alma-t.sh && sudo -u $username ./alma-t.sh && rm -f ./alma-t.sh
 
 #EXIT FROM ARCH-CHROOT
 exit 0
