@@ -18,15 +18,15 @@ ping example.com
 
 ### 2. Type this command below:
 ```bash
-sh -c "$(curl -fsSL https://git.io/JvYLK)"
+sh -c "$(curl -fsSL https://git.io/Jv3s4)"
 ```
 ### 3. Follow installer instructions.
 
 ##### P.S.:  You can fork and edit this script for yourself. I mean GNU GPL v3.
 ##### P.S.S: Also, you can download these scripts and edit them with nano or something right on your live ArchISO.
 ### Script URIs:
-#1: https://git.io/JvYLK
+#1: https://git.io/Jv3s4
 
-#2: https://git.io/JvtHM
+#2: https://git.io/Jv3sR
 
-#3: https://git.io/JvYLX
+#3: https://git.io/Jv3s0
