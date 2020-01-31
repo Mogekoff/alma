@@ -89,7 +89,7 @@ echo
 esac
 
 #XORG, FONT AND AUDIO PACKAGES
-pacman -S xorg-server xorg-xinit ttf-freefont ttf-dejavu alsa-utils --noconfirm
+pacman -S xorg-server xorg-xinit ttf-freefont ttf-dejavu alsa-utils efibootmgr --noconfirm
 
 #AUDIO ON
 amixer set Master 100% unmute
