@@ -109,6 +109,6 @@ umount /mnt
 
 #FINISHING
 clear
-echo "Installation successful! Welcome to Arch Linux World!!!"
-sleep 5
+echo "Installation successful! Welcome to Arch Linux World!!!" && sleep 5 && clear
+curl -fsSL https://pastebin.com/raw/WAjWbpbk && sleep 0.05 && clear
 reboot
