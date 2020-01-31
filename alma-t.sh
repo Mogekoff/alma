@@ -135,7 +135,7 @@ urxvt*background: rgba:0000/0000/0200/c800
 
 #AUTOSTART
 cd
-wget -O wallpaper.jpg https://git.io/JvY8U
+wget -O wallpaper.jpg https://git.io/Jv3si
 
 touch ~/.xprofile
 echo -e "
