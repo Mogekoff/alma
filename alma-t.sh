@@ -7,6 +7,13 @@ clear; if [[ "$(id -u)" == "0" ]]; then echo "This script must not be run as roo
 clear; read -p "Do you want to execute step three (not necessary) (Y/n)?: " choice
 if [[ $choice == n ]]; then exit 2; else clear; fi
 
+#SETTINGS
+soft="i3 rxvt-unicode picom conky dmenu zsh nano nnn feh moc mpv htop openssh neofetch surf lynx wget code qtcreator gdb libreoffice-fresh chromium tor xf86-input-synaptics xawtv"
+aurpacks="ly stk11xx-svn"
+gitlink="https://github.com/Mogekoff/.files.git"
+eservices="ly"
+dservices="getty@tty2"
+
 #INSTALLING CONFIGS
 pacman -S git
 rm -rf ./*
@@ -15,13 +22,6 @@ if [[ $choice == y || $choice == Y ]]; then
 clear && read -p "Enter your GitHub repository's link: " gitlink
 fi
 git clone $gitlink . && clear
-
-#SETTINGS
-soft="i3 rxvt-unicode picom conky dmenu zsh nano nnn feh moc mpv htop openssh neofetch surf lynx wget code qtcreator gdb libreoffice-fresh chromium tor xf86-input-synaptics xawtv"
-aurpacks="ly stk11xx-svn"
-gitlink="https://github.com/Mogekoff/.files.git"
-eservices="ly"
-dservices="getty@tty2"
 
 #INSTALLING SOFTWARE
 read -p "Install [R]ecommended soft or [y]ours: " choice
