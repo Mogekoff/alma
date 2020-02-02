@@ -20,8 +20,9 @@ useradd -m -g users -G wheel -s /bin/bash $username
 #SETTING UP USER PASSWORD
 echo -e "$upass\n$upass" | passwd $username
 
-#ADDING WHEEL GROUP TO SUDOERS
+#ADDING WHEEL GROUP TO SUDOERS AND USER NOPASSWD FOR THIRD STEP
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
+cp /etc/sudoers /etc/sudoers.tmp
 echo "$username ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 #GENERATING LOCALES
@@ -109,6 +110,10 @@ mkinitcpio -P
 
 #GO TO *STEP THREE*
 curl https://git.io/Jv3s0 --output alma-t.sh -sL && chmod +x alma-t.sh && sudo -u $username ./alma-t.sh && rm -f ./alma-t.sh
+
+#DELETE USER NOPASSWD
+rm -f /etc/sudoers
+mv /etc/sudoers.tmp /etc/sudoers
 
 #EXIT FROM ARCH-CHROOT
 exit 0
