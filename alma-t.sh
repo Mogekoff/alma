@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #CHECK THE SCRIPT IS NOT BEING RUN BY ROOT
-clear; if [[ "$(id -u)" == "0" ]]; then; echo "This script must not be run as root"; exit 1; fi 
+clear; if [[ "$(id -u)" == "0" ]]; then echo "This script must not be run as root"; exit 1; fi 
 
 #ASKINK FOR EXECUTE THIS SCRIPT
 clear; read -p "Do you want to execute step three (not necessary) (Y/n)?: " choice
