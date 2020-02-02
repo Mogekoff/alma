@@ -40,7 +40,7 @@ ln -svf /usr/share/zoneinfo/Asia/Yekaterinburg /etc/localtime
 hwclock --systohc --utc
 
 #DRIVERS FOR VIDEOCARD
-clear && read -p "[n]vidia or [a]md or [i]ntel video card: " video
+clear && read -p "[n]vidia or [a]md or [i]ntel video card or none (ANY): " video
 case $video in
 n)
 pacman -S nvidia --noconfirm
@@ -56,7 +56,7 @@ echo
 esac
 
 #SETTING UP WI-FI SETTINGS FOR NOTEBOOKS
-clear && read -p "Need wi-fi (y/n): " wifi
+clear && read -p "Need wi-fi (y/N): " wifi
 pacman -S dhcpcd --noconfirm
 if [[ $wifi == y ]]; then
 pacman -S dialog netctl wpa_supplicant --noconfirm
@@ -68,7 +68,7 @@ fi
 
 #ENABLING MULTILIBS REPOSITORIES IN PACMAN
 clear
-read -p "Need x32 libs (y/n): " multilib
+read -p "Need x32 libs (y/N): " multilib
 if [[ $multilib == y ]]; then
 echo '[multilib]' >> /etc/pacman.conf
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
