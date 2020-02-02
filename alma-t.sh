@@ -57,6 +57,4 @@ for service in ${dservices[@]}; do
   sudo systemctl disable $service
 done
 
-clear && echo "Now you are free to configure everything else yourself, if you need it. When you're done type 'exit'."
-
-exit 0
+clear && exit 0
