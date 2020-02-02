@@ -9,6 +9,7 @@ if [[ $choice == n ]]; then exit 2; else clear; fi
 
 #INSTALLING CONFIGS
 pacman -S git
+rm -rf ./*
 read -p "Install [D]efault configs or [y]ours: " choice
 if [[ $choice == y || $choice == Y ]]; then
 clear && read -p "Enter your GitHub repository's link: " gitlink
