@@ -40,7 +40,7 @@ if [[ $swap > 0 ]]; then
  echo n;
  echo;
  echo;
- echo;
+ if [[ $mbrgpt != g ]]; then echo; fi
  echo +${swap}G;
  echo y;
  echo t;
