@@ -79,8 +79,7 @@ fi
 clear && read -p "Is that [v]irtualbox, [vm]ware or real computer (ANY): " vm
 case $vm in
 v)
-pacman -S virtualbox-guest-utils xf86-video-vmware
-echo 2;
+echo 2 | pacman -S virtualbox-guest-utils xf86-video-vmware --noconfirm
 systemctl enable vboxservice
 ;;
 vm)
