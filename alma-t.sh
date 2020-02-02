@@ -26,7 +26,8 @@ read -p "Install [R]ecommended AUR packages or [y]ours: " choice
 if [[ choice == y ]]; then
 read -p "Enter AUR packages that you need separating by space: " aurpacks
 fi
-mkdir build && cd build
+mkdir build
+cd build
 for pack in ${aurpacks[@]}; do
   git clone https://aur.archlinux.org/${pack}.git
   cd $pack
