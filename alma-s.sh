@@ -4,21 +4,19 @@
 clear
 read -p "Enter hostname: " hostname
 read -p "Enter username: " username
-read -p "Enter root password: " rpass
-read -p "Enter username password: " upass
 clear
 
 #ENTER HOSTNAME
 echo $hostname > /etc/hostname
 
 #SETTING UP ROOT PASSWORD
-echo -e "$rpass\n$rpass" | passwd root
+passwd root
 
 #ADDING USER "USERNAME" WITH GROUP "WHEEL"
 useradd -m -g users -G wheel -s /bin/bash $username
 
 #SETTING UP USER PASSWORD
-echo -e "$upass\n$upass" | passwd $username
+passwd $username
 
 #ADDING WHEEL GROUP TO SUDOERS AND USER NOPASSWD FOR THIRD STEP
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
@@ -38,6 +36,7 @@ echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
 
 #SETTING UP TIME
 rm -rf /etc/localtime
+ln -svf /usr/share/zoneinfo/Asia/Yekaterinburg /etc/localtime
 hwclock --systohc --utc
 
 #DRIVERS FOR VIDEOCARD
