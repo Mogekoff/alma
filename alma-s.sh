@@ -83,7 +83,7 @@ pacman -S virtualbox-guest-utils xf86-video-vmware
 echo 2;
 systemctl enable vboxservice
 ;;
-vi)
+vm)
 pacman -S  xf86-input-vmmouse xf86-video-vmware open-vm-tools --noconfirm
 systemctl enable vmtoolsd
 systemctl enable vmware-vmblock-fuse
