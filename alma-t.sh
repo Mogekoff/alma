@@ -15,7 +15,7 @@ eservices="ly"
 dservices="getty@tty2"
 
 #INSTALLING CONFIGS
-sudo pacman -S git
+sudo pacman -S git --noconfirm && clear
 rm -rf ./*
 read -p "Install [D]efault configs or [y]ours: " choice
 if [[ $choice == y || $choice == Y ]]; then
