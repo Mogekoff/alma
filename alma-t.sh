@@ -32,7 +32,7 @@ sudo pacman -S $soft --noconfirm && clear
 
 #INSTALLING AUR PACKAGES
 read -p "Install [R]ecommended AUR packages or [y]ours: " choice
-if [[ choice == y ]]; then
+if [[ $choice == y ]]; then
 read -p "Enter AUR packages that you need separating by space: " aurpacks
 fi
 mkdir build
