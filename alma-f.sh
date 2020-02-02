@@ -90,8 +90,7 @@ mount /dev/sda1 /mnt/boot
 fi
 
 #BASE INSTALL
-pacstrap /mnt base base-devel linux linux-firmware
-pacstrap /mnt grub-bios
+pacstrap /mnt base base-devel linux linux-firmware grub-bios
 
 #GENFSTAB
 genfstab -p /mnt >> /mnt/etc/fstab 
