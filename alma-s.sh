@@ -8,21 +8,6 @@ read -p "Enter root password: " rpass
 read -p "Enter username password: " upass
 clear
 
-#GENERATING LOCALES
-echo en_US.UTF-8 UTF-8 > /etc/locale.gen
-echo ru_RU.UTF-8 UTF-8 >> /etc/locale.gen
-locale-gen
-
-#SETTING UP LOCALES
-echo LANG=ru_RU.UTF-8 > /etc/locale.conf
-export LANG=ru_RU.UTF-8
-echo 'KEYMAP=ru' >> /etc/vconsole.conf
-echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
-
-#SETTING UP TIME
-rm -rf /etc/localtime
-hwclock --systohc --utc
-
 #ENTER HOSTNAME
 echo $hostname > /etc/hostname
 
@@ -37,6 +22,22 @@ echo -e "$upass\n$upass" | passwd $username
 
 #ADDING WHEEL GROUP TO SUDOERS
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
+echo "$username ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+#GENERATING LOCALES
+echo en_US.UTF-8 UTF-8 > /etc/locale.gen
+echo ru_RU.UTF-8 UTF-8 >> /etc/locale.gen
+locale-gen
+
+#SETTING UP LOCALES
+echo LANG=ru_RU.UTF-8 > /etc/locale.conf
+export LANG=ru_RU.UTF-8
+echo 'KEYMAP=ru' >> /etc/vconsole.conf
+echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
+
+#SETTING UP TIME
+rm -rf /etc/localtime
+hwclock --systohc --utc
 
 #DRIVERS FOR VIDEOCARD
 clear
