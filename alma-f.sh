@@ -4,9 +4,9 @@
 clear && curl -fsSL https://pastebin.com/raw/GDiucm3B && sleep 5 && clear
 
 #BOOT PART
-read -p "Use GPT instead of MBR (y/n): " mbrgpt && clear
+read -p "Use [g]pt or [m]br: " mbrgpt && clear
 
-if [[ $mbrgpt == y ]]; then
+if [[ $mbrgpt == g ]]; then
 (
  echo g;
  echo n;
@@ -75,7 +75,7 @@ mkfs.ext4 /dev/sda2
 mount /dev/sda2 /mnt
 fi
 mkdir /mnt/boot /mnt/var /mnt/home
-if [[ $mbrgpt == y ]]; then
+if [[ $mbrgpt == g ]]; then
 mkdir /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
 else
@@ -84,6 +84,7 @@ fi
 
 #BASE INSTALL
 pacstrap /mnt base base-devel linux linux-firmware grub-bios
+if [[ $mbrgpt == g ]]; then pacstrap /mnt efibootmgr; fi
 
 #GENFSTAB
 genfstab -p /mnt >> /mnt/etc/fstab 
@@ -92,7 +93,7 @@ genfstab -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sh -c "$(curl -fsSL https://git.io/Jv3sR)"
 
 #UNMOUNT DICKS
-if [[ $mbrgpt == 1 ]]; then
+if [[ $mbrgpt == g ]]; then
 umount /mnt/boot/efi
 else
 umount /mnt/boot
