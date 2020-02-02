@@ -4,7 +4,7 @@
 clear && curl -fsSL https://pastebin.com/raw/GDiucm3B && sleep 5 && clear
 
 #BOOT PART
-read -p "Use [g]pt or [m]br: " mbrgpt && clear
+read -p "Use [g]pt or [M]br: " mbrgpt && clear
 
 if [[ $mbrgpt == g ]]; then
 (
@@ -41,7 +41,7 @@ if [[ $swap > 0 ]]; then
  echo;
  echo;
  echo;
- echo +"$swap"G;
+ echo +${swap}G;
  echo y;
  echo t;
  echo;
