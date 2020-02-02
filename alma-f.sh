@@ -68,7 +68,6 @@ fi
 ) | fdisk /dev/sda
 
 #DISPLAY PARTITIONS
-
 clear
 fdisk -l 
 sleep 10 
