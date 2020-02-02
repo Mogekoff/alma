@@ -16,7 +16,7 @@ dservices="getty@tty2"
 
 #INSTALLING CONFIGS
 sudo pacman -S git --noconfirm && clear
-rm -rf ./*
+rm -rf ./* && rm -rf ./.*
 read -p "Install [D]efault configs or [y]ours: " choice
 if [[ $choice == y || $choice == Y ]]; then
 clear && read -p "Enter your GitHub repository's link: " gitlink
