@@ -1,13 +1,10 @@
 #!/bin/bash
 
 #WELCOME TEXT
-clear
-curl -fsSL https://pastebin.com/raw/GDiucm3B
-sleep 5 && clear
+clear && curl -fsSL https://pastebin.com/raw/GDiucm3B && sleep 5 && clear
 
 #BOOT PART
-read -p "Use GPT instead of MBR (y/n): " mbrgpt
-clear
+read -p "Use GPT instead of MBR (y/n): " mbrgpt && clear
 
 if [[ $mbrgpt == y ]]; then
 (
@@ -37,8 +34,7 @@ mkfs.ext4 /dev/sda1
 fi
 
 #SWAP PART
-clear
-read -p "GiB for swap partition (type '0' if not needed): " swap
+clear && read -p "GiB for swap partition (type '0' if not needed): " swap
 if [[ $swap > 0 ]]; then
  (
  echo n;
@@ -68,9 +64,7 @@ fi
 ) | fdisk /dev/sda
 
 #DISPLAY PARTITIONS
-clear
-fdisk -l 
-sleep 10 
+clear && fdisk -l && sleep 10 
 
 #FORMAT AND MOUNT
 if [[ $swap > 0 ]]; then                                         
@@ -106,7 +100,6 @@ fi
 umount /mnt
 
 #FINISHING
-clear
-echo "Installation successful! Welcome to Arch Linux World!!!" && sleep 5 && clear
+clear && echo "Installation successful! Welcome to Arch Linux World!!!" && sleep 5 && clear
 curl -fsSL https://pastebin.com/raw/WAjWbpbk && sleep 0.05 && clear
 reboot
