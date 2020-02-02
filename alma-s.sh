@@ -104,7 +104,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 mkinitcpio -P
 
 #GO TO *STEP THREE*
-curl https://git.io/Jv3s0 --output alma-t.sh -sL && chmod +x alma-t.sh && sudo -u $username ./alma-t.sh && rm -f ./alma-t.sh
+cd /home/$username
+curl https://git.io/Jv3s0 --output alma-t.sh -sL && chmod +x alma-t.sh && sudo -u $username ./alma-t.sh && rm -f /home/$username/alma-t.sh
 
 #DELETE USER NOPASSWD
 rm -f /etc/sudoers
