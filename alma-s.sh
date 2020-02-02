@@ -1,22 +1,22 @@
 #!/bin/bash
 
 #ASK FOR INDIVIDUAL USERNAME AND HOSTNAME AND PASSES
-clear
-read -p "Enter hostname: " hostname
-read -p "Enter username: " username
-clear
+clear && read -p "Enter hostname: " hostname
+read -p "Enter username: " username && clear
 
 #ENTER HOSTNAME
 echo $hostname > /etc/hostname
 
 #SETTING UP ROOT PASSWORD
-passwd root
+echo -e "Enter root password.\n"
+passwd root && clear
 
 #ADDING USER "USERNAME" WITH GROUP "WHEEL"
 useradd -m -g users -G wheel -s /bin/bash $username
 
 #SETTING UP USER PASSWORD
-passwd $username
+echo -e "Enter $username password.\n"
+passwd $username && clear
 
 #ADDING WHEEL GROUP TO SUDOERS AND USER NOPASSWD FOR THIRD STEP
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
@@ -40,25 +40,23 @@ ln -svf /usr/share/zoneinfo/Asia/Yekaterinburg /etc/localtime
 hwclock --systohc --utc
 
 #DRIVERS FOR VIDEOCARD
-clear
-read -p "nvidia(0) or amd(1) or intel(2) video card: " video
+clear && read -p "[n]vidia or [a]md or [i]ntel video card: " video
 case $video in
-0)
+n)
 pacman -S nvidia --noconfirm
 echo
 ;;
-1)
+a)
 pacman -S mesa xf86-video-ati xf86-video-amdgpu vulkan-radeon libva-mesa-driver mesa-vdpau --noconfirm
 echo
 ;;
-2)
+i)
 pacman -S mesa  vulkan-intel xf86-video-intel --noconfirm
 echo
 esac
 
 #SETTING UP WI-FI SETTINGS FOR NOTEBOOKS
-clear
-read -p "Need wi-fi (y/n): " wifi
+clear && read -p "Need wi-fi (y/n): " wifi
 pacman -S dhcpcd --noconfirm
 if [[ $wifi == y ]]; then
 pacman -S dialog netctl wpa_supplicant --noconfirm
@@ -78,15 +76,14 @@ pacman -Syy
 fi
 
 #VIRTUAL MACHINE DRIVERS
-clear
-read -p "Is that virtualbox(0), vmware(1) or real pc(any): " vm
+clear && read -p "Is that [v]irtualbox, [vm]ware or real computer (ANY): " vm
 case $vm in
-0)
+v)
 pacman -S virtualbox-guest-utils xf86-video-vmware
 echo 2;
 systemctl enable vboxservice
 ;;
-1)
+vi)
 pacman -S  xf86-input-vmmouse xf86-video-vmware open-vm-tools --noconfirm
 systemctl enable vmtoolsd
 systemctl enable vmware-vmblock-fuse
@@ -94,7 +91,7 @@ echo
 esac
 
 #XORG, FONT AND AUDIO PACKAGES
-pacman -S xorg-server xorg-xinit ttf-freefont ttf-dejavu alsa-utils efibootmgr --noconfirm
+pacman -S xorg-server xorg-xinit ttf-freefont ttf-dejavu alsa-utils --noconfirm
 
 #AUDIO ON
 amixer set Master 100% unmute
