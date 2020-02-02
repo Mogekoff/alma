@@ -44,6 +44,7 @@ if [[ $swap > 0 ]]; then
  echo +${swap}G;
  echo y;
  echo t;
+ echo;
  if [[ $mbrgpt != g ]]; then echo 82; else echo 19; fi
  echo w;
  ) | fdisk /dev/sda
