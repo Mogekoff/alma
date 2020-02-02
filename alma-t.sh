@@ -14,7 +14,6 @@ gitlink="https://github.com/Mogekoff/.files.git"
 eservices="ly"
 dservices="getty@tty2"
 
-
 #INSTALLING SOFTWARE
 read -p "Install [R]ecommended soft or [y]ours: " choice
 if [[ $choice == y || $choice == Y ]]; then
