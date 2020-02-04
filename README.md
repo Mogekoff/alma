@@ -42,6 +42,6 @@ sh -c "$(curl -fsSL https://git.io/Jv3s4)"
 
 #3: https://git.io/Jv3s0
 
-##TODO:
+## TODO:
 ### OpenRC Migrating
 ### Wayland Migrating
